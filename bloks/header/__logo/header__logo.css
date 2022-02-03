@@ -1,0 +1,9 @@
+.header__logo {
+    max-width: 142px;
+    height: 33px;
+    background-color: rgba(0, 0, 0, 1);
+
+}
+.header__logo:hover {
+    background-color: rgba(255, 255, 255, 1);
+}

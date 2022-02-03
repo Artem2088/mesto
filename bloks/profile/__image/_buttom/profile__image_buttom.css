@@ -1,0 +1,10 @@
+.profile__image_buttom {
+    width: 150px;
+    height: 50px;
+    position: absolute;
+    top: 35%;
+    right: 0;
+}
+.profile__image_buttom:hover {
+    background: rgba(255, 255, 255, 1);
+}
