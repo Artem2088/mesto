@@ -1,0 +1,17 @@
+.profile__buttom {
+    width: 150px;
+    height: 50px;
+    position: absolute;
+    top: 35%;
+    right: 0;
+}
+.profile__buttom:hover {   
+    opacity: 0.6;
+}
+@media  screen and (max-width: 650px) {
+    .profile__buttom {
+        display: contents;
+        padding: 2px 0 0;
+
+    }
+}

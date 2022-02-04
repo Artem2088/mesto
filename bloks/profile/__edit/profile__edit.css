@@ -1,0 +1,28 @@
+.profile__edit {
+    display: block;
+    width: 24px;
+    height: 24px;
+    padding: 0 0 30px 18px;
+    align-self: center;
+}
+.profile__edit:hover {   
+    opacity: 0.6;
+}
+@media  screen and (max-width: 650px) {
+    .profile__edit {
+        position: relative;
+        bottom: 70px;
+        left: 143px;
+        padding: 0 0 0 10px;   
+    }
+}
+@media  screen and (max-width: 320px) {
+    .profile__edit {
+        width: 18px;
+        height: 18px;
+        position: relative;
+        bottom: 63px;
+        left: 99px;
+        padding: 0 0 0 10px;   
+    }
+}

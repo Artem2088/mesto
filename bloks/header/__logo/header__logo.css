@@ -5,5 +5,11 @@
 
 }
 .header__logo:hover {
-    background-color: rgba(255, 255, 255, 1);
+    opacity: 0.6;
 }
+@media  screen and (max-width: 320px) {
+    .header__logo {
+        max-width: 103.74px;
+        height: 24.4px;  
+    }
+}   

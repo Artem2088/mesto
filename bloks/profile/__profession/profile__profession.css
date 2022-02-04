@@ -7,3 +7,19 @@
     line-height: 22px;
     color: #FFFFFF;
 }
+@media  screen and (max-width: 650px) {
+    .profile__profession {
+        align-self: center;   
+    }
+}
+@media  screen and (max-width: 320px) {
+    .profile__profession {
+        align-self: center; 
+        max-width: 282px;
+        min-height: 14px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 17px;  
+    }
+}
