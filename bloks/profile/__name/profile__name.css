@@ -8,7 +8,7 @@
     color: #FFFFFF;
     padding: 0 0 16px;
 }
-@media  screen and (max-width: 320px) {
+@media  screen and (max-width: 450px) {
     .profile__name {
     max-width: 189px;
     min-height: 26px;

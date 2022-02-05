@@ -7,4 +7,12 @@
    line-height: 29px;
    color: #000000;
    margin: 0;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   overflow: hidden;
 }
+@media  screen and (max-width: 650px) {
+    .element__title {
+        white-space: normal;
+    }
+} 

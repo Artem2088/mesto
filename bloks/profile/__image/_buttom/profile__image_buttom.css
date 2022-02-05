@@ -2,6 +2,7 @@
     max-width: 150px;
     min-height: 50px;
     display: block;
+    border-radius: 2px;
 } 
 @media  screen and (max-width: 650px) {
     .profile__image_buttom {
@@ -10,6 +11,6 @@
 } 
 @media  screen and (max-width: 320px) {
     .profile__image_buttom {
-        max-width: 100%;
+        width: 100%;
     }
 }     
