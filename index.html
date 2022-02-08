@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MESTO</title>
     <link rel="stylesheet" href="pages/style.css">
+    <link rel="stylesheet" href="scripts/scripts.js">
 </head>
 <body class="root">
     <div class="page">
@@ -19,7 +20,7 @@
             <img src="images/Kusto.svg" alt="Жак Кусто" class="profile__avatar">
             <div class="profile__info">
                 <div class="profile__name">Жак-Ив Кусто</div>
-                <div class="profile__profession">Исследователь океана</div>
+                <div class="profile__hobby">Исследователь океана</div>
             </div>
             <a href="#" class="profile__edit"><img src="images/edit.svg" alt="редактировать" class="profile__image"></a>
             <a href="#" class="profile__buttom"><img src="images/Pupup.svg" alt="кнопка" class="profile__image_buttom"></a>
@@ -71,8 +72,19 @@
         <footer class="footer">
             <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
         </footer>
+        <section class="pupup">
+            <div class="pupup__overlay"></div>
+            <div class="pupup__form">
+                <p class="pupup__title">Редактировать профиль</p>
+                <div class="pupup__field">
+                    <p class="pupup__field_name">Жак-Ив Кусто</p>
+                    <p class="pupup__field_hobby">Исследователь океана</p>
+                </div>
+                <div class="pupup__submit-button">Сохранить</div>
+                <img src="images/Close-Icon.svg" alt="закрыть" class="pupup__close-icon">
+            </div>
+        </section>
         </div>
-    </div>
-    
+    </div>   
 </body>
 </html>
