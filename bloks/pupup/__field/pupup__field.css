@@ -1,0 +1,6 @@
+.pupup__field {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 54px 0 48px;
+}
