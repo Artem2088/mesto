@@ -4,3 +4,9 @@
   margin: 0 auto;
   padding: 54px 0 48px;
 }
+@media screen and (max-width: 425px) {
+  .pupup__field {
+    max-width: 238px;
+    padding: 75px 0 45px;
+  }
+}

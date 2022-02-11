@@ -1,7 +1,13 @@
 .element__icon {
-    width: 22px;
-    height: 19px;
-    color: rgba(0, 0, 0, 1);
-    align-self: center;
-    margin: 0;
+  width: 22px;
+  height: 19px;
+  color: #000000;
+  align-self: center;
+  margin: 0;
+}
+.element__icon:hover {
+  opacity: 0.5;
+}
+.element__icon:active {
+  color: #000000;
 }
