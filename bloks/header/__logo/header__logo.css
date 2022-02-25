@@ -1,16 +1,15 @@
 .header__logo {
-    max-width: 142px;
-    height: 33px;
-    background-color: rgba(0, 0, 0, 1);
-
+  max-width: 142px;
+  height: 33px;
+  background-color: rgba(0, 0, 0, 1);
 }
 .header__logo:hover {
-    opacity: 0.6;
+  opacity: 0.6;
 }
-@media  screen and (max-width: 320px) {
-    .header__logo {
-        max-width: 103.74px;
-        height: 24.4px; 
-        padding-left: 12px; 
-    }
-}   
+@media screen and (max-width: 320px) {
+  .header__logo {
+    width: 103.74px;
+    height: 24.4px;
+    padding-left: 12px;
+  }
+}

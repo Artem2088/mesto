@@ -7,9 +7,16 @@
   border-radius: 2px;
   border: 2px solid #000000;
   margin: 0 auto;
-  padding: 0;
+  padding: 14px 125px;
   cursor: pointer;
-}
+  color: #ffffff;
+  text-decoration: none;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
 }
 .pupup__submit-button:hover {
   background: #000000;
@@ -18,5 +25,12 @@
 @media screen and (max-width: 450px) {
   .pupup__submit-button {
     max-width: 238px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .pupup__submit-button {
+    padding: 14px 82px;
+    font-size: 14px;
+    line-height: 17px;
   }
 }
