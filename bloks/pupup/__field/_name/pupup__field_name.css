@@ -6,13 +6,12 @@
   line-height: 1.21;
   color: #000000;
   margin: 0;
-  padding: 0 36px 13px;
-  /*opacity: 0.2;
-  border-bottom: 1px solid #000000;*/
+  padding: 0 0 13px 0;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 450px) {
   .pupup__field_name {
     max-width: 238px;
-    padding: 0 0 30px;
   }
 }

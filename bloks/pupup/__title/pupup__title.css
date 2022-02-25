@@ -8,7 +8,7 @@
   margin: 0 auto;
   padding: 0;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 450px) {
   .pupup__title {
     max-width: 238px;
     font-style: normal;

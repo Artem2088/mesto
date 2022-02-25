@@ -1,16 +1,21 @@
 .pupup__submit-button {
-  max-width: 358px;
+  display: flex;
+  flex-direction: column;
+  width: 358px;
   height: 50px;
   background: #000000;
   border-radius: 2px;
+  border: 2px solid #000000;
   margin: 0 auto;
   padding: 0;
+  cursor: pointer;
+}
 }
 .pupup__submit-button:hover {
   background: #000000;
   opacity: 0.8;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 450px) {
   .pupup__submit-button {
     max-width: 238px;
   }

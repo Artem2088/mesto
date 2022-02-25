@@ -7,10 +7,9 @@
 @import url("../bloks/header/__logo/header__logo.css");
 @import url("../bloks/profile/profile.css");
 @import url("../bloks/profile/__avatar/profile__avatar.css");
+@import url("../bloks/profile/__avatar/_image/profile__avatar_image.css");
 @import url("../bloks/profile/__buttom/profile__buttom.css");
 @import url("../bloks/profile/__edit/profile__edit.css");
-@import url("../bloks/profile/__image/profile__image.css");
-@import url("../bloks/profile/__image/_buttom/profile__image_buttom.css");
 @import url("../bloks/profile/__info/profile__info.css");
 @import url("../bloks/profile/__name/profile__name.css");
 @import url("../bloks/profile/__hobby/profile__hobby.css");
@@ -23,7 +22,6 @@
 @import url("../bloks/footer/footer.css");
 @import url("../bloks/footer/__copyright/footer__copyright.css");
 @import url("../bloks/pupup/pupup.css");
-@import url("../bloks/pupup/__overlay/pupup__overlay.css");
 @import url("../bloks/pupup/__field/pupup__field.css");
 @import url("../bloks/pupup/__field/_hobby/pupup__field_hobby.css");
 @import url("../bloks/pupup/__field/_name/pupup__field_name.css");
@@ -31,4 +29,5 @@
 @import url("../bloks/pupup/__title/pupup__title.css");
 @import url("../bloks/pupup/submit-button/pupup__submit-button.css");
 @import url("../bloks/pupup/__close-icon/pupup__close-icon.css");
-@import url("../bloks/pupup/submit-button/_text/pupup__submit-buttom_text.css");
+@import url("../bloks/pupup/submit-button/_text/pupup__submit-button_text.css");
+@import url("../bloks/pupup/_opened/pupup_opened.css");

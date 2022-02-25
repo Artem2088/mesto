@@ -1,5 +1,5 @@
-.pupup {
-  display: none;
+.pupup_opened {
+  display: flex;
   flex-direction: column;
   align-self: center;
   width: 100%;

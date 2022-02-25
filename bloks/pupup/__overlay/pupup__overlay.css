@@ -1,9 +1,0 @@
-.pupup__overlay {
-  position: absolute;
-  width: 100%;
-  min-height: 720px;
-  top: 0;
-  left: 0;
-  background: #000000;
-  opacity: 0.5;
-}

@@ -1,19 +1,25 @@
 .pupup__close-icon {
-  position: absolute;
+  position: relative;
   width: 32px;
   height: 32px;
-  left: 430px;
-  bottom: 330px;
-  padding: 8px;
+  left: 15.25rem;
+  bottom: 35.625rem;
+  margin: 0 auto;
+  cursor: pointer;
 }
 .pupup__close-icon:hover {
   opacity: 0.6;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 550px) {
+  .pupup__close-icon {
+    left: 12.25rem;
+  }
+}
+@media screen and (max-width: 450px) {
   .pupup__close-icon {
     width: 20px;
     height: 20px;
-    padding: 16px;
-    left: 245px;
+    left: 8.25rem;
+    bottom: 22rem;
   }
 }

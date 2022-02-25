@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MESTO</title>
     <link rel="stylesheet" href="pages/style.css">
-    <link rel="stylesheet" href="scripts/scripts.js">
 </head>
 <body class="root">
     <div class="page">
@@ -16,15 +15,17 @@
                 <img src="images/logo.svg" alt="Лого" class="header__logo">                
             </div>
         </header>    
-        <div class="profile">
-            <img src="images/Kusto.svg" alt="Жак Кусто" class="profile__avatar">
-            <div class="profile__info">
-                <div class="profile__name">Жак-Ив Кусто</div>
-                <div class="profile__hobby">Исследователь океана</div>
+        <section class="profile">
+            <div class="profile__avatar">
+              <img src="images/Kusto.svg" alt="Жак Кусто" class="profile__avatar_image">
             </div>
-            <a href="#" class="profile__edit"><img src="images/edit.svg" alt="редактировать" class="profile__image"></a>
-            <a href="#" class="profile__buttom"><img src="images/Pupup.svg" alt="кнопка" class="profile__image_buttom"></a>
-        </div>
+            <div class="profile__info">
+                <h1 class="profile__name">Жак-Ив Кусто</h1>
+                <button class="profile__edit" type="button"></button>
+                <p class="profile__hobby">Исследователь океана</p>
+            </div>
+            <button class="profile__buttom" ></button>
+        </section>
         <section class="elements">
             <div class="element">
                 <img src="images/Karachaevsk.jpg" alt="Карачаевск" class="element__image">
@@ -73,20 +74,20 @@
             <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
         </footer>
         <section class="pupup">
-            <div class="pupup__overlay"></div>
-            <img src="images/Close-Icon.svg" alt="закрыть" class="pupup__close-icon">
-            <div class="pupup__form">
-                <p class="pupup__title">Редактировать профиль</p>
+            <form class="pupup__form">
+                <h2 class="pupup__title">Редактировать профиль</h2>
                 <div class="pupup__field">
-                    <p class="pupup__field_name">Жак-Ив Кусто</p>
-                    <p class="pupup__field_hobby">Исследователь океана</p>
+                  <input class="pupup__field_name" type="text" id="name" name="name" placeholder="О себе" value="" autocomplete="off">
+                  <input class="pupup__field_hobby" type="text" id="hobby" name="hobby" placeholder="Хобби" value="" autocomplete="off">
                 </div>
-                <div class="pupup__submit-button">
+                <button class="pupup__submit-button" type="submit">
                     <p class="pupup__submit-buttom_text">Сохранить</p>
-                </div>
-            </div>
+                </button>
+            </form>
+            <img src="images/Close-Icon.svg" alt="закрыть" class="pupup__close-icon">
         </section>
         </div>
-    </div>   
+    </div> 
+    <script src="scripts/scripts.js"></script>  
 </body>
 </html>
