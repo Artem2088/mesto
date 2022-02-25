@@ -7,7 +7,7 @@
 @import url("../bloks/header/__logo/header__logo.css");
 @import url("../bloks/profile/profile.css");
 @import url("../bloks/profile/__avatar/profile__avatar.css");
-@import url("../bloks/profile/__avatar/_image/profile__avatar_image.css");
+@import url("../bloks/profile/__image/profile__image.css");
 @import url("../bloks/profile/__buttom/profile__buttom.css");
 @import url("../bloks/profile/__edit/profile__edit.css");
 @import url("../bloks/profile/__info/profile__info.css");
@@ -23,8 +23,8 @@
 @import url("../bloks/footer/__copyright/footer__copyright.css");
 @import url("../bloks/pupup/pupup.css");
 @import url("../bloks/pupup/__field/pupup__field.css");
-@import url("../bloks/pupup/__field/_hobby/pupup__field_hobby.css");
-@import url("../bloks/pupup/__field/_name/pupup__field_name.css");
+@import url("../bloks/pupup/__field/__hobby/field__hobby.css");
+@import url("../bloks/pupup/__field/__name/field__name.css");
 @import url("../bloks/pupup/__form/pupup__form.css");
 @import url("../bloks/pupup/__title/pupup__title.css");
 @import url("../bloks/pupup/submit-button/pupup__submit-button.css");
