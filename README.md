@@ -15,6 +15,6 @@ https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0
 
 Ссылка на работу:
 
-fbsdf
+https://artem2088.github.io/mesto/
 
 В дальнейшем планируется добавить редактирования самих карточек с фотографиями.
