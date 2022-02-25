@@ -6,8 +6,8 @@ const closePupupButton = document.querySelector('.pupup__close-icon');
 const profileInfo = document.querySelector('.profile__info');
 const profileName = document.querySelector('.profile__name');
 const profileHobby = document.querySelector('.profile__hobby');
-const nameInput = document.querySelector('.field__name');
-const jobInput = document.querySelector('.field__hobby');
+const nameInput = document.querySelector('.pupup__name');
+const jobInput = document.querySelector('.pupup__hobby');
 
 openPupupButton.addEventListener('click', function() {
     pupup.classList.add('pupup_opened');
