@@ -1,11 +1,11 @@
-.pupup__field {
+.popup__field {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   padding: 54px 36px 48px;
 }
 @media screen and (max-width: 450px) {
-  .pupup__field {
+  .popup__field {
     max-width: 238px;
     padding: 75px 22px 45px;
   }

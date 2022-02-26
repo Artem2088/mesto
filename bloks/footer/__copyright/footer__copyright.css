@@ -1,15 +1,16 @@
-.footer__copyright  {
-    max-width: 318px;
-    min-height: 18px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 22px;
-    color: #545454;
+.footer__copyright {
+  max-width: 318px;
+  min-height: 18px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #545454;
+  margin: 0;
 }
-@media  screen and (max-width: 320px) {
-    .footer__copyright {
-        font-size: 14px;
-        line-height: 17px;
-    }
+@media screen and (max-width: 320px) {
+  .footer__copyright {
+    font-size: 14px;
+    line-height: 17px;
+  }
 }

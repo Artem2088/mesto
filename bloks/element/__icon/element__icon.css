@@ -5,6 +5,11 @@
   align-self: center;
   margin: 0;
   cursor: pointer;
+  background: transparent url("../../../images/Like.svg") 50%;
+  border-style: none;
+  background-repeat: no-repeat;
+  padding: 0;
+  object-fit: cover;
 }
 .element__icon:hover {
   opacity: 0.5;

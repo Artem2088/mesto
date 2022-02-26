@@ -1,18 +1,23 @@
 .element__title {
-    max-width: 246px;
-    min-height: 23px;
-    font-style: normal;
-    font-weight: 900;
-   font-size: 24px;
-   line-height: 29px;
-   color: #000000;
-   margin: 0;
-   text-overflow: ellipsis;
-   white-space: nowrap;
-   overflow: hidden;
+  max-width: 185px;
+  min-height: 23px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
-@media  screen and (max-width: 650px) {
-    .element__title {
-        white-space: normal;
-    }
-} 
+@media screen and (max-width: 790px) {
+  .element__title {
+    max-width: 160px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .element__title {
+    white-space: normal;
+  }
+}

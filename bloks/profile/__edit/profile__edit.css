@@ -2,7 +2,7 @@
   align-self: center;
   width: 24px;
   height: 24px;
-  background-image: url("../../../images/edit.svg");
+  background: transparent url("../../../images/edit.svg");
   background-color: inherit;
   border: 1px solid #ffffff;
   box-sizing: border-box;

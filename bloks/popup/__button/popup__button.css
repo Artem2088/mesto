@@ -1,4 +1,4 @@
-.pupup__submit-button {
+.popup__button {
   display: flex;
   flex-direction: column;
   width: 358px;
@@ -11,24 +11,18 @@
   cursor: pointer;
   color: #ffffff;
   text-decoration: none;
-  font-family: Inter;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
   text-align: center;
 }
-.pupup__submit-button:hover {
-  background: #000000;
+.popup__button:hover {
   opacity: 0.8;
 }
 @media screen and (max-width: 450px) {
-  .pupup__submit-button {
+  .popup__button {
     max-width: 238px;
-  }
-}
-@media screen and (max-width: 320px) {
-  .pupup__submit-button {
     padding: 14px 82px;
     font-size: 14px;
     line-height: 17px;

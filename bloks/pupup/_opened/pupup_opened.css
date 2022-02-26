@@ -1,9 +1,0 @@
-.pupup_opened {
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  width: 100%;
-  min-height: 720px;
-  position: fixed;
-  background: rgba(0, 0, 0, 0.5);
-}

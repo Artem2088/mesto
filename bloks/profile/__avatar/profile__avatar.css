@@ -1,9 +1,0 @@
-.profile__avatar {
-  max-width: 120px;
-  min-height: 120px;
-}
-@media screen and (max-width: 650px) {
-  .profile__avatar {
-    align-self: center;
-  }
-}
