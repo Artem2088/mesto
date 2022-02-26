@@ -9,10 +9,10 @@
 </head>
 <body class="root">
     <div class="page">
-        <div class="container">
         <header class="header">
           <img src="images/logo.svg" alt="Лого" class="header__logo">                
-        </header>    
+        </header> 
+        <div class="main">   
         <section class="profile">
               <img src="images/Avatar.png" alt="Жак Кусто" class="profile__image">
             <div class="profile__info">
@@ -66,20 +66,20 @@
                 </div>
             </article>
         </section>
+      </div>
         <footer class="footer">
             <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
         </footer>
         <div class="popup">
-            <form class="popup__form">
+            <form name="profile" class="popup__form">
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <div class="popup__field">
-                  <input class="popup__name" type="text" id="name" name="name" placeholder="О себе" value="" autocomplete="off">
-                  <input class="popup__hobby" type="text" id="hobby" name="hobby" placeholder="Хобби" value="" autocomplete="off">
+                  <input class="popup__input popup__input_write_name" type="text" id="name" name="name" placeholder="О себе" value="" autocomplete="off" required>
+                  <input class="popup__input popup__input_write_hobby" type="text" id="hobby" name="hobby" placeholder="Хобби" value="" autocomplete="off" required>
                 </div>
                 <button class="popup__button" type="submit">Сохранить</button> 
                 <button aria-label class="popup__close-icon" type="button"></button> 
             </form>                         
-        </div>
         </div>
     </div> 
     <script src="scripts/scripts.js"></script>  
