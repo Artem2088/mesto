@@ -11,7 +11,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 @media screen and (max-width: 450px) {
-  .popup__name {
+  .popup__input {
     max-width: 238px;
   }
 }
