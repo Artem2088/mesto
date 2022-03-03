@@ -17,7 +17,7 @@
               <img src="images/Avatar.png" alt="Жак Кусто" class="profile__image">
             <div class="profile__info">
                 <h1 class="profile__name">Жак-Ив Кусто</h1>
-                <button aria-label class="profile__edit" type="button"></button>
+                <button class="profile__edit" type="button"></button>
                 <p class="profile__hobby">Исследователь океана</p>
             </div>
             <button aria-label class="profile__button" type="button"></button>
@@ -70,17 +70,19 @@
         <footer class="footer">
             <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
         </footer>
-        <div class="popup">
-            <form name="popupForm" class="popup__form">
-                <h2 class="popup__title">Редактировать профиль</h2>
-                <div class="popup__field">
-                  <input class="popup__input popup__input_write_name" type="text" id="name" name="name" placeholder="О себе" value="" autocomplete="off" required>
-                  <input class="popup__input popup__input_write_hobby" type="text" id="hobby" name="hobby" placeholder="Хобби" value="" autocomplete="off" required>
-                </div>
-                <button class="popup__button" type="submit">Сохранить</button> 
-                <button aria-label class="popup__close-icon" type="button"></button> 
-            </form>                         
-        </div>
+        <div class="popup"> 
+          <div class="popup__container">
+            <form name="popupForm" class="popup__form"> 
+              <h2 class="popup__title">Редактировать профиль</h2> 
+              <div class="popup__field"> 
+                <input class="popup__input popup__input_write_name" type="text" id="name" name="name" placeholder="О себе" value="" autocomplete="off" required> 
+                <input class="popup__input popup__input_write_hobby" type="text" id="hobby" name="hobby" placeholder="Хобби" value="" autocomplete="off" required> 
+              </div> 
+              <button class="popup__button" type="submit">Сохранить</button>    
+            </form> 
+            <button aria-label class="popup__close-icon" type="button"></button>
+          </div>                        
+      </div> 
     </div> 
     <script src="scripts/index.js"></script>  
 </body>
