@@ -1,7 +1,6 @@
 .popup {
   display: flex;
   flex-direction: column;
-  align-self: center;
   width: 100%;
   height: 100%;
   position: fixed;
@@ -9,4 +8,6 @@
   transition: all 0.8s ease 0s;
   opacity: 0;
   visibility: hidden;
+  justify-content: center;
+  align-items: center;
 }
