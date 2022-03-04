@@ -16,12 +16,12 @@
 .profile__button:hover {
   opacity: 0.6;
 }
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 1000px) {
   .profile__button {
     margin: 30px auto 0;
   }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 425px) {
   .profile__button {
     width: 282px;
     background-size: 16px;
