@@ -1,7 +1,14 @@
 .popup-image__picture {
   display: flex;
-  width: 433px;
-  height: 540px;
-  /*background:;
-  background-position: center;*/
+  max-width: 75vw;
+  max-height: 75vh;
+  object-fit: cover;
+}
+@media screen and (max-width: 768px) {
+  .popup-image__picture {
+    max-width: 60vw;
+    max-height: 57vh;
+    min-width: 240px;
+    min-height: 299px;
+  }
 }

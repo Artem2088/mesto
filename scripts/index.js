@@ -17,10 +17,14 @@ const elementTitle = document.querySelector('.element__title');
 const placeInput = document.querySelector('.popup__input_write_place');
 const urlInput = document.querySelector('.popup__input_write_url');
 const popupImage = document.querySelector('.popup-image');
+const popupImagePicture = document.querySelector('.popup-image__picture');
 const popupImageCloseIcon = document.querySelector('.popup-image__close-icon');
 const elementList = document.querySelector('.elements');
 const elementTemplate = document.querySelector('.element-template').content;
-
+const popupImageDescription = document.querySelector(
+  '.popup-image__description'
+);
+const popupCardsForm = popupCards.querySelector('.popup-cards__form');
 /*----------------------массив с карточками -------------------------*/
 const initialCards = [
   {
@@ -61,6 +65,7 @@ function formSubmitHandler(evt) {
   profileName.textContent = nameInput.value;
   profileHobby.textContent = jobInput.value;
   close();
+  popupForm.reset();
 }
 /*--------------------------------Функция закрытия popup----------------------*/
 function close() {
@@ -76,13 +81,7 @@ function openCards() {
 function closeCards() {
   popupCards.classList.remove('popup_opened');
 }
-/*-----------------------Отправка данных с кнопки в popup-cards-----------------------*/
-function formSubmitCards(evt) {
-  evt.preventDefault();
-  elementTitle.textContent = placeInput.value;
-  elementImage.textContent = urlInput.value;
-  closeCards();
-}
+
 /*--------------------------------Функция вызова попапа с картинки ---------------------------*/
 function openImage() {
   popupImage.classList.add('popup_opened');
@@ -113,20 +112,41 @@ initialCards.forEach(function (item) {
       const eventTarget = evt.target;
       evt.target.closest('.element').remove();
     });
+  /*открытие попапа с картинки*/
+  cardElement
+    .querySelector('.element__image')
+    .addEventListener('click', function () {
+      popupImagePicture.src = item.link;
+      popupImage.alt = item.name;
+      popupImageDescription.textContent = item.name;
+      openImage();
+    });
+
   elementList.append(cardElement);
 });
 
+//Добавление карточки с кнопки в popup-cards
+function formSubmitCards(evt) {
+  evt.preventDefault();
+  const cardElement = elementTemplate.querySelector('.element').cloneNode(true);
+  cardElement.querySelector('.element__image').src = urlInput.value;
+  cardElement.querySelector('.element__image').alt = placeInput.value;
+  cardElement.querySelector('.element__title').textContent = placeInput.value;
+  elementList.prepend(cardElement);
+  closeCards();
+  popupCardsForm.reset();
+}
+
+popupCardsForm.addEventListener('submit', formSubmitCards);
 /*------------------------------------СОБЫТИЯ--------------------------*/
 popupForm.addEventListener('submit', formSubmitHandler);
 
 closePopupButton.addEventListener('click', close);
+
 /*-----------------------------открытие попапа с добавлением карточек с кнопки------------------*/
 profileButton.addEventListener('click', openCards);
 
 popupCardsCloseButton.addEventListener('click', closeCards);
-
-/*-----------------------------------вешаем событие на картинку-----------------*/
-cardElement.addEventListener('click', openImage);
 
 /*---------------------------------вешаем событие на закрытие попапа с картинкой----------------------*/
 popupImageCloseIcon.addEventListener('click', closeImage);

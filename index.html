@@ -31,7 +31,7 @@
         </footer>
         <div class="popup"> 
           <div class="popup__container">
-            <form name="popupForm" class="popup__form"> 
+            <form name="form" class="popup__form"> 
               <h2 class="popup__title">Редактировать профиль</h2> 
               <div class="popup__field"> 
                 <input class="popup__input popup__input_write_name" type="text" id="name" name="name" placeholder="О себе" value="" autocomplete="off" required> 
@@ -44,20 +44,20 @@
         </div> 
         <div class="popup-cards popup"> 
           <div class="popup__container">
-            <form name="popupForm" class="popup__form"> 
+            <form name="form" class="popup__form popup-cards__form"> 
               <h2 class="popup__title">Новое место</h2> 
               <div class="popup__field"> 
                 <input class="popup__input popup__input_write_place" type="text" id="place" name="name" placeholder="Название" value="" autocomplete="off" required> 
-                <input class="popup__input popup__input_write_url" type="url" id="url" name="hobby" placeholder="Ссылка на картинку" value="" autocomplete="off" required> 
+                <input class="popup__input popup__input_write_url" type="url" id="url" name="link" placeholder="Ссылка на картинку" value="" autocomplete="off" required> 
               </div> 
-              <button class="popup__button" type="submit">Сохранить</button>   
+              <button class="popup__button popup-cards__button" type="submit">Сохранить</button>   
             </form> 
             <button aria-label class="popup-cards__close-icon popup__close-icon" type="button"></button>
           </div>                        
         </div> 
         <div class="popup-image popup"> 
           <div class="popup-image__block">
-            <image class="popup-image__picture" alt="Картинка"></image>
+            <img class="popup-image__picture" alt="Картинка" src="#">
             <p class="popup-image__description"></p>     
             <button aria-label class="popup-image__close-icon popup__close-icon" type="button"></button>  
           </div>                         
