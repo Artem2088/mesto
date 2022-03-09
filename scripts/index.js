@@ -94,24 +94,28 @@ function closeImage() {
 /*------------------------------------функция добавления карточек----------------*/
 
 initialCards.forEach(function (item) {
-  const cardElement = elementTemplate.cloneNode(true);
-
+  const cardElement = elementTemplate.querySelector('.element').cloneNode(true);
   cardElement.querySelector('.element__title').textContent = item.name;
   cardElement.querySelector('.element__image').src = item.link;
+
+  /*функция активации/дезактивации кнопки лайк*/
   cardElement
     .querySelector('.element__icon')
     .addEventListener('click', function (evt) {
       const eventTarget = evt.target;
-      evt.target.classList.toggle('element__icon_active'); //функция активации/дезактивации кнопки лайк
+      evt.target.classList.toggle('element__icon_active');
+    });
+
+  /*функция удаления карточки*/
+  cardElement
+    .querySelector('.element__delete')
+    .addEventListener('click', function (evt) {
+      const eventTarget = evt.target;
+      evt.target.closest('.element').remove();
     });
   elementList.append(cardElement);
 });
-/*---------------------функция добавления  иконки удаления------------------*/
-function addElementDelete() {
-  const elementDelete = document.createElement('button');
-  elementDelete.classList.add('element__delete');
-  cardElement.append(elementDelete);
-}
+
 /*------------------------------------СОБЫТИЯ--------------------------*/
 popupForm.addEventListener('submit', formSubmitHandler);
 
