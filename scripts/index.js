@@ -20,6 +20,7 @@ const popupImage = document.querySelector('.popup-image');
 const popupImageCloseIcon = document.querySelector('.popup-image__close-icon');
 const elementList = document.querySelector('.elements');
 const elementTemplate = document.querySelector('.element-template').content;
+
 /*----------------------массив с карточками -------------------------*/
 const initialCards = [
   {
@@ -54,7 +55,7 @@ function open() {
   jobInput.value = profileHobby.textContent;
 }
 openPopupButton.addEventListener('click', open);
-/*-----------------------Функция отправки данных с кнопки в popup-----------------------*/
+/*-----------------------Функция отправки данных пользователя  с кнопки в popup-----------------------*/
 function formSubmitHandler(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
@@ -92,23 +93,25 @@ function closeImage() {
 }
 /*------------------------------------функция добавления карточек----------------*/
 
-/*function cardElementItems(item) {
-  const cardElement = elementTemplate.cloneNode(true);
-  cardElement.querySelector('.element__title').textContent = item.name;
-  cardElement.querySelector('.element__image').src = item.link;
-  elementList.append(cardElement);
-}
-initialCards.forEach(cardElementItems);*/
-
 initialCards.forEach(function (item) {
   const cardElement = elementTemplate.cloneNode(true);
 
   cardElement.querySelector('.element__title').textContent = item.name;
   cardElement.querySelector('.element__image').src = item.link;
-
+  cardElement
+    .querySelector('.element__icon')
+    .addEventListener('click', function (evt) {
+      const eventTarget = evt.target;
+      evt.target.classList.toggle('element__icon_active'); //функция активации/дезактивации кнопки лайк
+    });
   elementList.append(cardElement);
 });
-
+/*---------------------функция добавления  иконки удаления------------------*/
+function addElementDelete() {
+  const elementDelete = document.createElement('button');
+  elementDelete.classList.add('element__delete');
+  cardElement.append(elementDelete);
+}
 /*------------------------------------СОБЫТИЯ--------------------------*/
 popupForm.addEventListener('submit', formSubmitHandler);
 
@@ -119,7 +122,7 @@ profileButton.addEventListener('click', openCards);
 popupCardsCloseButton.addEventListener('click', closeCards);
 
 /*-----------------------------------вешаем событие на картинку-----------------*/
-elementImage.addEventListener('click', openImage);
+cardElement.addEventListener('click', openImage);
 
 /*---------------------------------вешаем событие на закрытие попапа с картинкой----------------------*/
 popupImageCloseIcon.addEventListener('click', closeImage);
