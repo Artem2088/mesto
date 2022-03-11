@@ -1,5 +1,6 @@
 /*-----------Объявляем переменные----------------------------------*/
-const page = document.querySelector('.page');
+const root = document.querySelector('.root');
+const page = root.querySelector('.page');
 const popup = page.querySelector('.popup');
 const popupForm = popup.querySelector('.popup__form');
 const closePopupButton = popup.querySelector('.popup__close-icon');
@@ -102,15 +103,16 @@ function closeImage() {
   popupImage.classList.remove('popup_opened');
 }
 /*------------------------------------функция добавления карточек----------------*/
-function addCards(itemName, itemLink) {
-  const elementTemplate = document.querySelector('#element-template').content;
+function addCards() {
+  const elementTemplate = root.querySelector('#element-template').content;
   const cardElement = elementTemplate.querySelector('.element').cloneNode(true);
-  const cardElementImage = elementTemplate.querySelector('.element__image');
-  const cardElementTitle = elementTemplate.querySelector('.element__title');
+  const cardElementImage = cardElement.querySelector('.element__image');
+  const cardElementTitle = cardElement.querySelector('.element__title');
 
   cardElementTitle.textContent = cardTitle;
   cardElementImage.src = cardImage;
   cardElementImage.alt = cardTitle;
+
   cardElement
     .querySelector('.element__icon')
     .addEventListener('click', function (evt) {
@@ -133,58 +135,21 @@ function addCards(itemName, itemLink) {
       popupImageDescription.textContent = itemName;
       openImage();
     });
-  //return cardElement;
-  addCards(item);
+  return cardElement;
 }
-function renderInitialCards(initialCards) {
-  initialCards.forEach((item) => {
-    elementList.append(cardElement(item.link, item.name));
-  });
-}
-/*initialCards.forEach(function (item) {
+
+initialCards.forEach(function (item) {
+  const elementTemplate = root.querySelector('.element-template').content;
   const cardElement = elementTemplate.querySelector('.element').cloneNode(true);
-  cardElement.querySelector('.element__title').textContent = item.name;
   cardElement.querySelector('.element__image').src = item.link;
+  cardElement.querySelector('.element__title').textContent = item.name;
   elementList.append(cardElement);
 });
-
-/*function imageLike(evt) {
-  const eventTarget = evt.target;
-  evt.target.classList.toggle('element__icon_active');
-}
-//elementIcon.addEventListener('click', imageLike);
-
-/*функция активации/дезактивации кнопки лайк*/
-/*cardElement
-  .querySelector('.element__icon')
-  .addEventListener('click', function (evt) {
-    const eventTarget = evt.target;
-    evt.target.classList.toggle('element__icon_active');
-  });
-
-/*функция удаления карточки*/
-/*cardElement
-    .querySelector('.element__delete')
-    .addEventListener('click', function (evt) {
-      const eventTarget = evt.target;
-      evt.target.closest('.element').remove();
-    });
-  /*открытие попапа с картинки*/
-/*cardElement
-    .querySelector('.element__image')
-    .addEventListener('click', function () {
-      popupImagePicture.src = item.link;
-      popupImage.alt = item.name;
-      popupImageDescription.textContent = item.name;
-      openImage();
-    });
-
-  elementList.append(cardElement);
-});*/
 
 //Добавление карточки с кнопки в popup-cards
 function formSubmitCards(evt) {
   evt.preventDefault();
+  const elementTemplate = root.querySelector('.element-template').content;
   const cardElement = elementTemplate.querySelector('.element').cloneNode(true);
   cardElement.querySelector('.element__image').src = urlInput.value;
   cardElement.querySelector('.element__image').alt = placeInput.value;
