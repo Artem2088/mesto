@@ -6,9 +6,3 @@
   box-sizing: border-box;
   position: relative;
 }
-@media screen and (max-width: 768px) {
-  .popup-image__block {
-    min-width: 240px;
-    min-height: 299px;
-  }
-}
