@@ -1,5 +1,7 @@
 .popup__form {
-  margin: 0;
-  padding: 0;
-  display: block;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  margin: 0 auto;
+  padding: 54px 0 18px;
 }
