@@ -6,11 +6,11 @@ const popup = page.querySelector('.popup');
 
 const popupProfile = page.querySelector('.popup-profile');
 const popupForm = popupProfile.querySelector('.popup__form');
+const popupField = popupProfile.querySelector('.popup__field');
 const popupButtonClose = popupProfile.querySelector('.popup__close-icon');
 const nameInput = popupProfile.querySelector('.popup__input_write_name');
 const jobInput = popupProfile.querySelector('.popup__input_write_hobby');
 const popupInput = popupProfile.querySelector('.popup__input');
-const popupOverlay = popup.querySelector('.popup__overlay');
 
 const profile = page.querySelector('.profile');
 const popupButtonOpen = profile.querySelector('.profile__edit');
@@ -73,6 +73,8 @@ function openPopup(popup) {
   popup.classList.add('popup_opened');
   popup.addEventListener('click', closeOverlay);
   document.addEventListener('keydown', escPopup);
+  popupForm.reset();
+  popupCardsForm.reset();
 }
 //функция закрытия всех попап
 function closePopup(popup) {
@@ -88,12 +90,11 @@ function createOpen() {
   openPopup(popupProfile);
 }
 //Функция отправки данных пользователя  с кнопки в popup
-function formSubmitProfile(evt) {
+function createformSubmitProfile(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileHobby.textContent = jobInput.value;
   closePopup(popupProfile);
-  popupForm.reset();
 }
 
 //функция добавления карточки
@@ -109,25 +110,21 @@ function createAddCards(cardImage, cardTitle) {
   cardElement
     .querySelector('.element__icon')
     .addEventListener('click', function (evt) {
-      const eventTarget = evt.target;
       evt.target.classList.toggle('element__icon_active');
     });
   //удалить карточку
   cardElement
     .querySelector('.element__delete')
     .addEventListener('click', function (evt) {
-      const eventTarget = evt.target;
       evt.target.closest('.element').remove();
     });
   //открыть попап с картинкой
-  cardElement
-    .querySelector('.element__image')
-    .addEventListener('click', function () {
-      popupImagePicture.src = cardImage;
-      popupImage.alt = cardTitle;
-      popupImageDescription.textContent = cardTitle;
-      openPopup(popupImage);
-    });
+  cardElementImage.addEventListener('click', function () {
+    popupImagePicture.src = cardImage;
+    popupImage.alt = cardTitle;
+    popupImageDescription.textContent = cardTitle;
+    openPopup(popupImage);
+  });
   return cardElement;
 }
 
@@ -140,7 +137,7 @@ function showInitialCards(initialCards) {
 showInitialCards(initialCards);
 
 //функция добавление карточки с кнопки в popup-cards
-function formSubmitCards(evt) {
+function createformSubmitCards(evt) {
   evt.preventDefault();
   cardsContainer.prepend(createAddCards(urlInput.value, placeInput.value));
   closePopup(popupCards);
@@ -164,15 +161,11 @@ function closeOverlay(evt) {
 }
 
 /*-------------------------------------------------------СОБЫТИЯ--------------------------------------------------------------------*/
-popupCardsForm.addEventListener('submit', formSubmitCards); //добавляем картинку
-popupForm.addEventListener('submit', formSubmitProfile); //меняем информацию в профиле
+popupCardsForm.addEventListener('submit', createformSubmitCards); //добавляем картинку
+popupForm.addEventListener('submit', createformSubmitProfile); //меняем информацию в профиле
 popupButtonOpen.addEventListener('click', createOpen); //открытие попапа
 profileButton.addEventListener('click', () => openPopup(popupCards)); //открытие попапа с добавлением карточек с кнопки
 
 popupButtonClose.addEventListener('click', () => closePopup(popupProfile)); //закрытие попапа
-popupCardsCloseButton.addEventListener(
-  'click',
-  () => closePopup(popupCards),
-  popupForm.reset()
-); //закрытие попапа с картинкой
+popupCardsCloseButton.addEventListener('click', () => closePopup(popupCards)); //закрытие попапа с картинкой
 popupImageCloseIcon.addEventListener('click', () => closePopup(popupImage)); //закрытие попапа с картинкой
