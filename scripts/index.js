@@ -6,7 +6,6 @@ const popup = page.querySelector('.popup');
 
 const popupProfile = page.querySelector('.popup-profile');
 const popupForm = popupProfile.querySelector('.popup__form');
-const popupField = popupProfile.querySelector('.popup__field');
 const popupButtonClose = popupProfile.querySelector('.popup__close-icon');
 const nameInput = popupProfile.querySelector('.popup__input_write_name');
 const jobInput = popupProfile.querySelector('.popup__input_write_hobby');
