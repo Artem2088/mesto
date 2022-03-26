@@ -41,18 +41,27 @@ const checkValidity = (formElement, inputElement) => {
   }
 };
 
+function disableSubmitButtonElement(submitButtonElement, object) {
+  submitButtonElement.classList.add(object.inactiveButtonClass);
+  submitButtonElement.setAttribute('disabled', true);
+}
+
+function enableSubmitButtonElement(submitButtonElement, object) {
+  submitButtonElement.classList.remove(object.inactiveButtonClass);
+  submitButtonElement.removeAttribute('disabled');
+}
+
 const toggleButtonState = (inputList, submitButtonElement, object) => {
   const inputElements = Array.from(inputList);
-  const hasInvalidInput = inputElements.some((inputElement) => {
-    return !inputElement.validity.valid;
-  });
-
+  const hasInvalidInput = inputElements.some(
+    (inputElement, submitButtonElement) => {
+      return !inputElement.validity.valid;
+    }
+  );
   if (hasInvalidInput) {
-    submitButtonElement.classList.add(object.inactiveButtonClass);
-    submitButtonElement.setAttribute('disabled', true);
+    disableSubmitButtonElement(submitButtonElement, object);
   } else {
-    submitButtonElement.classList.remove(object.inactiveButtonClass);
-    submitButtonElement.removeAttribute('disabled');
+    enableSubmitButtonElement(submitButtonElement, object);
   }
 };
 

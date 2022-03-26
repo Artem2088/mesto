@@ -10,6 +10,7 @@ const popupButtonClose = popupProfile.querySelector('.popup__close-icon');
 const nameInput = popupProfile.querySelector('.popup__input_write_name');
 const jobInput = popupProfile.querySelector('.popup__input_write_hobby');
 const popupInput = popupProfile.querySelector('.popup__input');
+const popupButton = popupProfile.querySelectorAll('.popup__button');
 
 const profile = page.querySelector('.profile');
 const popupButtonOpen = profile.querySelector('.profile__edit');
@@ -18,6 +19,7 @@ const profileHobby = profile.querySelector('.profile__hobby');
 const profileButton = profile.querySelector('.profile__button');
 
 const popupCards = page.querySelector('.popup-cards');
+const popupCardsButton = popupCards.querySelector('.popup-cards__button');
 const popupCardsCloseButton = popupCards.querySelector(
   '.popup-cards__close-icon'
 );
@@ -72,8 +74,6 @@ function openPopup(popup) {
   popup.classList.add('popup_opened');
   popup.addEventListener('click', closeOverlay);
   document.addEventListener('keydown', escPopup);
-  popupForm.reset();
-  popupCardsForm.reset();
 }
 //функция закрытия всех попап
 function closePopup(popup) {
@@ -140,6 +140,8 @@ function createformSubmitCards(evt) {
   evt.preventDefault();
   cardsContainer.prepend(createAddCards(urlInput.value, placeInput.value));
   closePopup(popupCards);
+  popupCardsForm.reset();
+  disableSubmitButtonElement(popupButton);
 }
 
 //Функция закрытия попапа с ESC
