@@ -141,7 +141,7 @@ function createformSubmitCards(evt) {
   cardsContainer.prepend(createAddCards(urlInput.value, placeInput.value));
   closePopup(popupCards);
   popupCardsForm.reset();
-  disableSubmitButtonElement(popupButton);
+  disableSubmitButtonElement(popupCardsButton, object);
 }
 
 //Функция закрытия попапа с ESC

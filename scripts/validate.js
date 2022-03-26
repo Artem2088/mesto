@@ -1,4 +1,4 @@
-const validationSettings = {
+const object = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__button',
@@ -16,7 +16,7 @@ const getErrorElement = (inputElement, object) => {
 };
 
 const showError = (formElement, inputElement, errorMessage, object) => {
-  const errorElement = getErrorElement(inputElement, validationSettings);
+  const errorElement = getErrorElement(inputElement, object);
 
   errorElement.textContent = errorMessage;
   errorElement.classList.add(object.errorClass);
@@ -24,7 +24,7 @@ const showError = (formElement, inputElement, errorMessage, object) => {
 };
 
 const hideError = (formElement, inputElement, object) => {
-  const errorElement = getErrorElement(inputElement, validationSettings);
+  const errorElement = getErrorElement(inputElement, object);
 
   errorElement.textContent = '';
   errorElement.classList.remove(object.errorClass);
@@ -35,9 +35,9 @@ const checkValidity = (formElement, inputElement) => {
 
   if (isInputNotValid) {
     const errorMessage = inputElement.validationMessage;
-    showError(formElement, inputElement, errorMessage, validationSettings);
+    showError(formElement, inputElement, errorMessage, object);
   } else {
-    hideError(formElement, inputElement, validationSettings);
+    hideError(formElement, inputElement, object);
   }
 };
 
@@ -53,11 +53,9 @@ function enableSubmitButtonElement(submitButtonElement, object) {
 
 const toggleButtonState = (inputList, submitButtonElement, object) => {
   const inputElements = Array.from(inputList);
-  const hasInvalidInput = inputElements.some(
-    (inputElement, submitButtonElement) => {
-      return !inputElement.validity.valid;
-    }
-  );
+  const hasInvalidInput = inputElements.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
   if (hasInvalidInput) {
     disableSubmitButtonElement(submitButtonElement, object);
   } else {
@@ -73,13 +71,13 @@ const setEventListeners = (formElement, object) => {
   const inputListIterator = (inputElement) => {
     const handleInput = (event) => {
       checkValidity(formElement, inputElement);
-      toggleButtonState(inputList, submitButtonElement, validationSettings);
+      toggleButtonState(inputList, submitButtonElement, object);
     };
 
     inputElement.addEventListener('input', handleInput);
   };
 
-  toggleButtonState(inputList, submitButtonElement, validationSettings);
+  toggleButtonState(inputList, submitButtonElement, object);
 
   inputList.forEach(inputListIterator);
 };
@@ -94,10 +92,10 @@ const enableValidation = (object) => {
 
     formElement.addEventListener('submit', handleFormSubmit);
 
-    setEventListeners(formElement, validationSettings);
+    setEventListeners(formElement, object);
   };
 
   formList.forEach(formListIteratior);
 };
 
-enableValidation(validationSettings);
+enableValidation(object);
