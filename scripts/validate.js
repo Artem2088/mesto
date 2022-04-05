@@ -1,14 +1,3 @@
-const object = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_inactive',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__input-error_active',
-  labelSelector: '.popup__label',
-  inputError: '.popup__input-error',
-  inputErrorButtonLine: 'popup__input_type_error',
-};
 const getErrorElement = (inputElement, object) => {
   return inputElement
     .closest(object.labelSelector)
