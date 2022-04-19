@@ -1,13 +1,5 @@
-import { initialCards, elementTemplate } from '../utils/constant.js';
-import {
-  popupImagePicture,
-  popupImage,
-  popupImageDescription,
-  openPopup,
-} from '../scripts/index.js';
-
 //класс карточки
-export class Card {
+export default class Card {
   // в конструкторе будут динамические данные,
   // для каждого экземпляра свои
   constructor(data, cardSelector) {

@@ -1,30 +1,8 @@
-//Импорт
-import { Card } from '../scripts/card.js';
-import {
-  popupCardsForm,
-  popupForm,
-  popupButtonOpen,
-  profileButton,
-  popupButtonClose,
-  popupCardsCloseButton,
-  popupImageCloseIcon,
-  popupCards,
-  nameInput,
-  jobInput,
-  profileName,
-  profileHobby,
-  popupProfile,
-  cardsContainer,
-  urlInput,
-  placeInput,
-  elementTemplate,
-  popupCardsButton,
-  popupImagePicture,
-  popupImage,
-  popupImageDescription,
-} from '../utils/constant.js';
-export { popupImagePicture, popupImage, popupImageDescription, openPopup };
+import FormValidator from './formValidator.js';
+import Card from './card.js';
+
 /*-------------------------------------------------------ФУНКЦИИ------------------------------------------------------------*/
+
 //функция открытия всех попап
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -89,7 +67,6 @@ function createformSubmitCards(evt) {
   cardsContainer.prepend(createAddCards(urlInput.value, placeInput.value));
   closePopup(popupCards);
   popupCardsForm.reset();
-  disableSubmitButtonElement(popupCardsButton, object);
 }
 
 //Функция закрытия попапа с ESC
@@ -118,3 +95,12 @@ profileButton.addEventListener('click', () => openPopup(popupCards)); //откр
 popupButtonClose.addEventListener('click', () => closePopup(popupProfile)); //закрытие попапа
 popupCardsCloseButton.addEventListener('click', () => closePopup(popupCards)); //закрытие попапа с картинкой
 popupImageCloseIcon.addEventListener('click', () => closePopup(popupImage)); //закрытие попапа с картинкой
+
+const createFormValidCards = new FormValidator(object, createformSubmitCards);
+const createFormValidProfile = new FormValidator(
+  object,
+  createformSubmitProfile
+);
+
+createFormValidCards.enableValidation();
+createFormValidProfile.enableValidation();
