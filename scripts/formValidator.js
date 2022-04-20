@@ -16,8 +16,8 @@ export default class FormValidator {
 
   _getErrorElement(inputElement, object) {
     return inputElement
-      .closest(object.labelSelector)
-      .querySelector(object.inputError);
+      .closest(this._object.labelSelector)
+      .querySelector(this._object.inputError);
   }
   //функция, которая добовляет класс с ошибкой
   _showError(formElement, inputElement, errorMessage, object) {
@@ -41,7 +41,7 @@ export default class FormValidator {
     if (this._isInputNotValid) {
       this._errorMessage = inputElement.validationMessage;
       // Если поле не проходит валидацию, покажем ошибку
-      this._showError(formElement, inputElement, errorMessage, object);
+      this._showError(formElement, inputElement, object);
     } else {
       // Если проходит, скроем
       this._hideError(formElement, inputElement, object);
@@ -79,8 +79,12 @@ export default class FormValidator {
       inputElement.addEventListener('input', () => {
         // Внутри колбэка вызовем checkValidity,
         // передав ей форму и проверяемый элемент
-        this._checkValidity(inputElement);
-        this._toggleButtonState(inputList, submitButtonElement, object);
+        this._checkValidity(formElement, inputElement);
+        this._toggleButtonState(
+          this._inputList,
+          this._submitButtonElement,
+          object
+        );
       });
     });
   }
@@ -95,12 +99,10 @@ export default class FormValidator {
   }
   //сброс ошибок и очистка полей инпутов
   resetValidationForm() {
-    this._toggleButtonState();
+    this._toggleButtonState(this._inputList, this._submitButtonElement, object);
 
     this._inputList.forEach((inputElement) => {
-      () => {
-        this._hideError();
-      };
+      this._hideError(inputElement);
     });
   }
 }

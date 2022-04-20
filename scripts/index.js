@@ -62,6 +62,7 @@ function createAddCards(cardImage, cardTitle) {
     popupImage.alt = cardTitle;
     popupImageDescription.textContent = cardTitle;
     openPopup(popupImage);
+    createFormValidCards.resetValidationForm();
   });
   return cardElement;
 }
@@ -72,7 +73,6 @@ function createformSubmitCards(evt) {
   cardsContainer.prepend(createAddCards(urlInput.value, placeInput.value));
   closePopup(popupCards);
   popupCardsForm.reset();
-  createFormValidCards.resetValidationForm();
 }
 
 //Функция закрытия попапа с ESC
