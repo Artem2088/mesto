@@ -64,7 +64,7 @@ export default class FormValidator {
     this._hasInvalidInput = this._inputElements.some((inputElement) => {
       return !inputElement.validity.valid;
     });
-    if (this._hasInvalidInput) {
+    if (this._hasInvalidInput || !inputList) {
       this._disableSubmitButtonElement(submitButtonElement, object);
     } else {
       this._enableSubmitButtonElement(submitButtonElement, object);
@@ -88,6 +88,15 @@ export default class FormValidator {
       });
     });
   }
+  //сброс ошибок и очистка полей инпутов
+  resetValidationForm() {
+    this._toggleButtonState();
+
+    this._inputList.forEach((inputElement) => {
+      inputElement.value = '';
+      this._hideError(this._formElement, inputElement, this._object);
+    });
+  }
   // сама валидация
   enableValidation(object) {
     this._formList.forEach((formElement) => {
@@ -95,14 +104,6 @@ export default class FormValidator {
         evt.preventDefault();
       });
       this._setEventListeners(formElement, object);
-    });
-  }
-  //сброс ошибок и очистка полей инпутов
-  resetValidationForm() {
-    this._toggleButtonState(this._inputList, this._submitButtonElement, object);
-
-    this._inputList.forEach((inputElement) => {
-      this._hideError(inputElement);
     });
   }
 }

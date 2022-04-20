@@ -9,7 +9,8 @@ createFormValidCards.enableValidation();
 createFormValidProfile.enableValidation();
 
 //функция открытия всех попап
-function openPopup(popup) {
+export function openPopup(popup) {
+  createFormValidCards.resetValidationForm();
   popup.classList.add('popup_opened');
   popup.addEventListener('click', closeOverlay);
   document.addEventListener('keydown', escPopup);
@@ -27,6 +28,7 @@ function createOpen() {
   jobInput.value = profileHobby.textContent;
   openPopup(popupProfile);
 }
+
 //Функция отправки данных пользователя  с кнопки в popup
 function createformSubmitProfile(evt) {
   evt.preventDefault();
@@ -62,7 +64,6 @@ function createAddCards(cardImage, cardTitle) {
     popupImage.alt = cardTitle;
     popupImageDescription.textContent = cardTitle;
     openPopup(popupImage);
-    createFormValidCards.resetValidationForm();
   });
   return cardElement;
 }

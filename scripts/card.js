@@ -1,3 +1,4 @@
+import { openPopup } from './index.js';
 //класс карточки
 export default class Card {
   // в конструкторе будут динамические данные,
