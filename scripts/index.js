@@ -2,6 +2,11 @@ import FormValidator from './formValidator.js';
 import Card from './card.js';
 
 /*-------------------------------------------------------ФУНКЦИИ------------------------------------------------------------*/
+const createFormValidCards = new FormValidator(object, popupCardsForm);
+const createFormValidProfile = new FormValidator(object, popupForm);
+
+createFormValidCards.enableValidation();
+createFormValidProfile.enableValidation();
 
 //функция открытия всех попап
 function openPopup(popup) {
@@ -67,6 +72,7 @@ function createformSubmitCards(evt) {
   cardsContainer.prepend(createAddCards(urlInput.value, placeInput.value));
   closePopup(popupCards);
   popupCardsForm.reset();
+  createFormValidCards.resetValidationForm();
 }
 
 //Функция закрытия попапа с ESC
@@ -95,12 +101,3 @@ profileButton.addEventListener('click', () => openPopup(popupCards)); //откр
 popupButtonClose.addEventListener('click', () => closePopup(popupProfile)); //закрытие попапа
 popupCardsCloseButton.addEventListener('click', () => closePopup(popupCards)); //закрытие попапа с картинкой
 popupImageCloseIcon.addEventListener('click', () => closePopup(popupImage)); //закрытие попапа с картинкой
-
-const createFormValidCards = new FormValidator(object, createformSubmitCards);
-const createFormValidProfile = new FormValidator(
-  object,
-  createformSubmitProfile
-);
-
-createFormValidCards.enableValidation();
-createFormValidProfile.enableValidation();
