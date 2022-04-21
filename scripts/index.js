@@ -10,7 +10,6 @@ createFormValidProfile.enableValidation();
 
 //функция открытия всех попап
 export function openPopup(popup) {
-  createFormValidCards.resetValidationForm();
   popup.classList.add('popup_opened');
   popup.addEventListener('click', closeOverlay);
   document.addEventListener('keydown', escPopup);
@@ -24,6 +23,7 @@ function closePopup(popup) {
 
 //Функция открытия popup
 function createOpen() {
+  createFormValidProfile.resetValidationForm();
   nameInput.value = profileName.textContent;
   jobInput.value = profileHobby.textContent;
   openPopup(popupProfile);
@@ -93,11 +93,25 @@ function closeOverlay(evt) {
   }
 }
 
+//функция добавления карточек с массива
+initialCards.forEach((item) => {
+  // Создадим экземпляр карточки
+  const card = new Card(item);
+  // Создаём карточку и возвращаем наружу
+  const cardElement = card.generateCard();
+  // Добавляем в DOM
+  document.querySelector('.elements').append(cardElement);
+});
+
 /*-------------------------------------------------------СОБЫТИЯ--------------------------------------------------------------------*/
+
 popupCardsForm.addEventListener('submit', createformSubmitCards); //добавляем картинку
 popupForm.addEventListener('submit', createformSubmitProfile); //меняем информацию в профиле
 popupButtonOpen.addEventListener('click', createOpen); //открытие попапа
-profileButton.addEventListener('click', () => openPopup(popupCards)); //открытие попапа с добавлением карточек с кнопки
+profileButton.addEventListener(
+  'click',
+  () => openPopup(popupCards) || createFormValidCards.resetValidationForm()
+); //открытие попапа с добавлением карточек с кнопки
 
 popupButtonClose.addEventListener('click', () => closePopup(popupProfile)); //закрытие попапа
 popupCardsCloseButton.addEventListener('click', () => closePopup(popupCards)); //закрытие попапа с картинкой
