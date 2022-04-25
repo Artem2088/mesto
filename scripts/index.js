@@ -38,7 +38,7 @@ function createformSubmitProfile(evt) {
 }
 
 //функция добавления карточки
-function createAddCards(cardImage, cardTitle) {
+/*function createAddCards(cardImage, cardTitle) {
   const cardElement = elementTemplate.querySelector('.element').cloneNode(true);
   const cardElementImage = cardElement.querySelector('.element__image');
   const cardElementTitle = cardElement.querySelector('.element__title');
@@ -66,12 +66,20 @@ function createAddCards(cardImage, cardTitle) {
     openPopup(popupImage);
   });
   return cardElement;
+}*/
+
+function renderCards(item) {
+  // Создадим экземпляр карточки
+  const card = new Card(item, elementTemplate);
+  // Создаём карточку и возвращаем наружу
+  const cardGenerate = card.generateCard(item, elementTemplate);
+  return cardGenerate;
 }
 
 //функция добавление карточки с кнопки в popup-cards
-function createformSubmitCards(evt) {
-  evt.preventDefault();
-  cardsContainer.prepend(createAddCards(urlInput.value, placeInput.value));
+function createformSubmitCards(item) {
+  //evt.preventDefault();
+  cardsContainer.prepend(renderCards(item, elementTemplate));
   closePopup(popupCards);
   popupCardsForm.reset();
 }
@@ -95,12 +103,9 @@ function closeOverlay(evt) {
 
 //функция добавления карточек с массива
 initialCards.forEach((item) => {
-  // Создадим экземпляр карточки
-  const card = new Card(item);
-  // Создаём карточку и возвращаем наружу
-  const cardElement = card.generateCard();
+  renderCards(item);
   // Добавляем в DOM
-  document.querySelector('.elements').append(cardElement);
+  cardsContainer.append(renderCards(item));
 });
 
 /*-------------------------------------------------------СОБЫТИЯ--------------------------------------------------------------------*/
