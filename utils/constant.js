@@ -78,3 +78,7 @@ const object = {
   inputError: '.popup__input-error',
   inputErrorButtonLine: 'popup__input_type_error',
 };
+const data = {
+  name: placeInput.innerHTML,
+  link: urlInput.src,
+};

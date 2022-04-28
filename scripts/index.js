@@ -37,51 +37,23 @@ function createformSubmitProfile(evt) {
   closePopup(popupProfile);
 }
 
-//функция добавления карточки
-/*function createAddCards(cardImage, cardTitle) {
-  const cardElement = elementTemplate.querySelector('.element').cloneNode(true);
-  const cardElementImage = cardElement.querySelector('.element__image');
-  const cardElementTitle = cardElement.querySelector('.element__title');
-
-  cardElementTitle.textContent = cardTitle;
-  cardElementImage.src = cardImage;
-  cardElementImage.alt = cardTitle;
-  //лайк для карточки
-  cardElement
-    .querySelector('.element__icon')
-    .addEventListener('click', function (evt) {
-      evt.target.classList.toggle('element__icon_active');
-    });
-  //удалить карточку
-  cardElement
-    .querySelector('.element__delete')
-    .addEventListener('click', function (evt) {
-      evt.target.closest('.element').remove();
-    });
-  //открыть попап с картинкой
-  cardElementImage.addEventListener('click', function () {
-    popupImagePicture.src = cardImage;
-    popupImage.alt = cardTitle;
-    popupImageDescription.textContent = cardTitle;
-    openPopup(popupImage);
-  });
-  return cardElement;
-}*/
-
-function renderCards(item) {
-  // Создадим экземпляр карточки
-  const card = new Card(item, elementTemplate);
-  // Создаём карточку и возвращаем наружу
-  const cardGenerate = card.generateCard(item, elementTemplate);
-  return cardGenerate;
-}
-
 //функция добавление карточки с кнопки в popup-cards
-function createformSubmitCards(item) {
-  //evt.preventDefault();
-  cardsContainer.prepend(renderCards(item, elementTemplate));
+function createformSubmitCards(e) {
+  e.preventDefault();
+  data.name = placeInput.value;
+  data.link = urlInput.value;
+  cardsContainer.prepend(renderCards(data));
   closePopup(popupCards);
   popupCardsForm.reset();
+}
+
+//функция добавления карточки
+function renderCards(data) {
+  // Создадим экземпляр карточки
+  const card = new Card(data);
+  // Создаём карточку и возвращаем наружу
+  const cardGenerate = card.generateCard();
+  return cardGenerate;
 }
 
 //Функция закрытия попапа с ESC
@@ -91,6 +63,7 @@ function escPopup(evt) {
     closePopup(document.querySelector('.popup_opened'));
   }
 }
+
 //Функция закрытия попапа на оверлей
 function closeOverlay(evt) {
   if (

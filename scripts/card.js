@@ -3,12 +3,11 @@ import { openPopup } from './index.js';
 export default class Card {
   // в конструкторе будут динамические данные,
   // для каждого экземпляра свои
-  constructor(data, cardSelector) {
+  constructor(data) {
     // name и link — приватные поля,
     // они нужны только внутри класса
     this._name = data.name;
     this._link = data.link;
-    this._cardSelector = cardSelector;
   }
 
   _getTemplate() {
