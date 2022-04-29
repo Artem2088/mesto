@@ -37,7 +37,7 @@ export default class Card {
   //функция открытия попапа с картинкой
   _createOpenImage() {
     popupImagePicture.src = this._link;
-    popupImage.alt = this._name;
+    popupImagePicture.alt = this._name;
     popupImageDescription.textContent = this._name;
     openPopup(popupImage);
   }
@@ -70,7 +70,7 @@ export default class Card {
 
     // Добавим данные
     this._element.querySelector('.element__title').textContent = this._name;
-    this._element.querySelector('.element__title').alt = this._name;
+    this._element.querySelector('.element__image').alt = this._name;
     this._element.querySelector('.element__image').src = this._link;
 
     // Вернём элемент наружу

@@ -42,13 +42,13 @@ function createformSubmitCards(e) {
   e.preventDefault();
   data.name = placeInput.value;
   data.link = urlInput.value;
-  cardsContainer.prepend(renderCards(data));
+  cardsContainer.prepend(renderCard(data));
   closePopup(popupCards);
   popupCardsForm.reset();
 }
 
 //функция добавления карточки
-function renderCards(data) {
+function renderCard(data) {
   // Создадим экземпляр карточки
   const card = new Card(data);
   // Создаём карточку и возвращаем наружу
@@ -76,9 +76,8 @@ function closeOverlay(evt) {
 
 //функция добавления карточек с массива
 initialCards.forEach((item) => {
-  renderCards(item);
   // Добавляем в DOM
-  cardsContainer.append(renderCards(item));
+  cardsContainer.append(renderCard(item));
 });
 
 /*-------------------------------------------------------СОБЫТИЯ--------------------------------------------------------------------*/
