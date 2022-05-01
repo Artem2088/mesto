@@ -1,4 +1,4 @@
-import 'pages/index.css'; // добавьте импорт главного файла стилей
+import '../src/pages/index.css'; // добавьте импорт главного файла стилей
 /*-----------------------------------------------------ПЕРЕМЕННЫЕ--------------------------------------------------------------*/
 const root = document.querySelector('.root');
 const page = root.querySelector('.page');
