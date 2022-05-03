@@ -1,4 +1,3 @@
-import { openPopup } from './index.js';
 //класс карточки
 export default class Card {
   // в конструкторе будут динамические данные,
@@ -39,7 +38,8 @@ export default class Card {
     popupImagePicture.src = this._link;
     popupImagePicture.alt = this._name;
     popupImageDescription.textContent = this._name;
-    openPopup(popupImage);
+    createPopupOpen.open();
+    //openPopup(popupImage);
   }
   //слушатели
   _setEventListeners() {
