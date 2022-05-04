@@ -1,27 +1,43 @@
-import { closeOverlay, escPopup } from './index.js';
+import { closeOverlay } from './index.js';
 
 export default class Popup {
   constructor(popup) {
     this._popup = popup;
+    this._handleEscClose = this._handleEscClose.bind(this);
+    this._closeOverlay = closeOverlay;
+    this._popupCloseIcon = this._popup.querySelector('.popup__close-icon');
+    this.close = this.close.bind(this);
   }
 
-  _handleEscClose() {
-    document.addEventListener('keydown', escPopup);
-    document.removeEventListener('keydown', escPopup);
+  _handleEscClose(evt) {
+    //Функция закрытия попапа с ESC
+    if (evt.key === 'Escape') {
+      this.close();
+    }
   }
 
-  open(popup) {
+  open() {
     //функция открытия попап
     this._popup.classList.add('popup_opened');
+    document.addEventListener('keydown', this._handleEscClose);
   }
 
-  close(popup) {
+  close() {
     //функция закрытия попап
     this._popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', this._handleEscClose);
   }
 
   setEventListeners() {
-    this._popup.addEventListener('click', closeOverlay);
-    this._popup.removeEventListener('click', closeOverlay);
+    //функция закрытия попапа на крестик
+    this._popupCloseIcon.addEventListener('click', () => {
+      this.close();
+    });
+    //функция закрытия попапа на оверлей
+    this._popup.addEventListener('click', () => {
+      if (this._popup.classList.contains('popup_opened')) {
+        this.close();
+      }
+    });
   }
 }

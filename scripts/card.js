@@ -38,7 +38,7 @@ export default class Card {
     popupImagePicture.src = this._link;
     popupImagePicture.alt = this._name;
     popupImageDescription.textContent = this._name;
-    createPopupOpen.open();
+    createPopupOpen.open(popupImage);
     //openPopup(popupImage);
   }
   //слушатели
