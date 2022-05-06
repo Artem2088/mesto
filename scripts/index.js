@@ -2,6 +2,8 @@ import FormValidator from './formValidator.js';
 import Card from './card.js';
 import Section from './section.js';
 import Popup from './popup.js';
+import PopupWithImage from './popupWithImage.js';
+import PopupWithForm from './PopupWithForm.js';
 
 const createFormValidCards = new FormValidator(object, popupCardsForm);
 const createFormValidProfile = new FormValidator(object, popupForm);
@@ -20,31 +22,45 @@ const cardList = new Section(
 );
 cardList.renderAllCards(data);
 
-const createPopupOpen = new Popup(popup);
-createPopupOpen.open();
+const createPopupOpenProfile = new Popup(popup);
+createPopupOpenProfile.open();
+
+const createPopupOpenCards = new Popup(popup);
+createPopupOpenCards.open(popupCards);
 
 const createPopupClose = new Popup(popup);
 createPopupClose.close();
 
-const createEvtPopup = new Popup(popup);
+const createEvtPopup = new Popup();
 createEvtPopup.setEventListeners();
 
+const createPopupWithForm = new PopupWithForm(popup, {
+  renderPopupWithForm: (evt) => {
+    evt.preventDefault();
+    profileName.textContent = nameInput.value;
+    profileHobby.textContent = jobInput.value;
+    createPopupClose.close();
+  },
+});
+createPopupWithForm.setEventListeners();
+
+const createPopupWithImage = new PopupWithImage(popup);
+createPopupWithImage.setEventListeners();
+
 //Функция открытия popup profile
-function createOpen() {
+/*function createOpen() {
   createFormValidProfile.resetValidationForm();
-  createPopupOpen.open(popupProfile);
+  createPopupOpenProfile.open();
   nameInput.value = profileName.textContent;
   jobInput.value = profileHobby.textContent;
-  //openPopup(popupProfile);
-}
+}*/
 
 //Функция отправки данных пользователя  с кнопки в popup
 function createformSubmitProfile(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileHobby.textContent = jobInput.value;
-  createPopupClose.close(popupProfile);
-  //closePopup(popupProfile);
+  createPopupClose.close();
 }
 
 //функция добавление карточки с кнопки в popup-cards
@@ -53,8 +69,7 @@ function createformSubmitCards(e) {
   data.name = placeInput.value;
   data.link = urlInput.value;
   cardsContainer.prepend(renderCard(data));
-  createPopupClose.close(popupCards);
-  //closePopup(popupCards);
+  createPopupClose.close();
   popupCardsForm.reset(popupCards);
 }
 
@@ -67,24 +82,19 @@ function renderCard(data) {
   return cardGenerate;
 }
 
-//Функция закрытия попапа на оверлей
-export function closeOverlay(evt) {
-  if (
-    !evt.target.closest('.popup__container') &&
-    !evt.target.closest('.popup-image__block')
-  ) {
-    createPopupClose.close(evt.target.closest('.popup'));
-  }
-}
-
 /*-------------------------------------------------------СОБЫТИЯ--------------------------------------------------------------------*/
 
 popupCardsForm.addEventListener('submit', createformSubmitCards); //добавляем картинку
 popupForm.addEventListener('submit', createformSubmitProfile); //меняем информацию в профиле
-popupButtonOpen.addEventListener('click', createOpen); //открытие попапа
+popupButtonOpen.addEventListener(
+  'click',
+  () =>
+    createPopupOpenProfile.open() ||
+    createFormValidProfile.resetValidationForm() /*createOpen*/
+); //открытие попапа
 profileButton.addEventListener(
   'click',
   () =>
-    createPopupOpen.open(popupCards) /*openPopup(popupCards)*/ ||
+    createPopupOpenCards.open() /*openPopup(popupCards)*/ ||
     createFormValidCards.resetValidationForm()
 ); //открытие попапа с добавлением карточек с кнопки
