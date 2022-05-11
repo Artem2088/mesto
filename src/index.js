@@ -4,6 +4,7 @@ import FormValidator from '../scripts/FormValidator.js';
 import PopupWithImage from '../scripts/PopupWithImage.js';
 import PopupWithForm from '../scripts/PopupWithForm.js';
 import UserInfo from '../scripts/UserInfo.js';
+import 'src/index.css'; // добавьте импорт главного файла стилей
 
 // Константа содержащая в себе все карточки
 const cardsList = new Section(
