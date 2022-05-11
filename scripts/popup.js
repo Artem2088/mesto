@@ -1,44 +1,94 @@
 export default class Popup {
-  constructor(popup) {
-    this._popup = document.querySelector('.popup-cards');
-    this._handleEscClose = this._handleEscClose.bind(this);
-    this._popupCloseIcon = this._popup.querySelector('.popup__close-icon');
-    this.close = this.close.bind(this);
+  constructor(container) {
+    this._container = container;
+    this._input1 = document.querySelector('#input__error1');
+    this._input2 = document.querySelector('#input__error2');
+    this._span1 = document.querySelector('.span__error1');
+    this._span2 = document.querySelector('.span__error2');
   }
 
-  _handleEscClose(evt) {
-    //Функция закрытия попапа с ESC
-    if (evt.key === 'Escape') {
-      this.close();
-    }
-  }
-
+  // Метод открытия попапа
   open() {
-    //функция открытия попап
-    this._popup.classList.add('popup_opened');
-    document.addEventListener('keydown', this._handleEscClose);
+    this._container.classList.add('popup_opened');
+    this._input1.classList.remove('popup__input-error_active');
+    this._input2.classList.remove('popup__input-error_active');
+    this._span1.textContent = '';
+    this._span2.textContent = '';
   }
-
+  // Метод закрытия попапа
   close() {
-    //функция закрытия попап
-    this._popup.classList.remove('popup_opened');
-    document.removeEventListener('keydown', this._handleEscClose);
+    this._container.classList.remove('popup_opened');
   }
 
-  setEventListeners(evt) {
-    //функция закрытия попапа на крестик
-    this._popupCloseIcon.addEventListener('click', () => {
-      this.close();
-    });
-    //функция закрытия попапа на оверлей
-    this._popup.addEventListener('click', (evt) => {
-      if (
-        !evt.target.closest('.popup__container') &&
-        !evt.target.closest('.popup-image__block')
-      )
-        if (this._popup.classList.contains('popup_opened')) {
-          this.close();
-        }
-    });
+  // Метод содержащий функционал нажатия на ESC
+  _handleEscClose = (evt) => {
+    if (evt.key === 'Escape') {
+      this.close(this._container);
+    }
+  };
+
+  // Метод клика по зонам контейнера
+  _handleClickContainer = (evt) => {
+    if (
+      evt.target.classList.contains('popup') ||
+      evt.target.classList.contains('popup__button-close-icon')
+    ) {
+      this.close(this._container);
+    }
+  };
+
+  // Метод добавляющий слушатели событий
+  setEventListeners() {
+    document.addEventListener('keydown', this._handleEscClose);
+    this._container.addEventListener('click', this.open(this._container));
+    this._container.addEventListener('click', this._handleClickContainer);
   }
 }
+// export default class Popup {
+//   constructor(popupContainer) {
+//     this._container = document.querySelector(`${popupContainer}`);
+//     // this._handleEscClose = this._handleEscClose.bind(this);
+//     // this._popupCloseIcon = this._popupCards.querySelector('.popup__close-icon');
+//     // this.close = this.close.bind(this);
+//     // this._container = cardsContainer;
+//   }
+
+//   _handleEscClose(evt) {
+//     //Функция закрытия попапа с ESC
+//     if (evt.key === 'Escape') {
+//       this.close(this._container);
+//     }
+//   }
+
+//   open() {
+//     //функция открытия попап
+//     this._container.classList.add('popup_opened');
+//     document.addEventListener('keydown', this._handleEscClose);
+//   }
+
+//   close() {
+//     //функция закрытия попап
+//     this._container.classList.remove('popup_opened');
+//     document.removeEventListener('keydown', this._handleEscClose);
+//   }
+
+//   _handleClick = (evt) => {
+//     this._container.addEventListener('click', (evt) => {
+//       if (
+//         evt.target.classList.contains('popup') ||
+//         evt.target.classList.contains('popup__close-icon')
+//       ) {
+//         this.close(this._container);
+//       }
+//       // if (this._popupCards.classList.contains('popup_opened')) {
+//       //   this.close();
+//       // }
+//     });
+//   };
+
+//   setEventListeners(evt) {
+//     //функция закрытия попапа на крестик
+//     this._container.addEventListener('click', this._handleClick);
+//     //функция закрытия попапа на оверлей
+//   }
+// }

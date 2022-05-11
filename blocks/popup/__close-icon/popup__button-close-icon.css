@@ -1,4 +1,4 @@
-.popup__close-icon {
+.popup__button-close-icon {
   position: absolute;
   left: 100%;
   bottom: 100%;
@@ -11,7 +11,7 @@
   margin: 8px;
   background-size: 32px;
 }
-.popup__close-icon:hover {
+.popup__button-close-icon:hover {
   opacity: 0.6;
 }
 @media screen and (max-width: 550px) {
@@ -20,7 +20,7 @@
   }
 }
 @media screen and (max-width: 450px) {
-  .popup__close-icon {
+  .popup__button-close-icon {
     width: 20px;
     height: 20px;
     background-size: 20px;
