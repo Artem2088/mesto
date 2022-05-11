@@ -18,19 +18,3 @@ export default class PopupWithImage extends Popup {
     super.open();
   }
 }
-// export default class PopupWithImage extends Popup {
-//   constructor(popupContainer) {
-//     super(popupContainer);
-//     this._imagePopup = this._container.querySelector('.popup-image__picture');
-//     this._descriptionPopup = this._container.querySelector(
-//       '.popup-image__description'
-//     );
-//   }
-
-//   open(name, link) {
-//     super.open();
-//     this._imagePopup.src = link;
-//     // this._imagePopup.alt = data.name;
-//     this._descriptionPopup.textContent = name;
-//   }
-// }
