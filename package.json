@@ -4,7 +4,7 @@
   "description": "Проектная работа №4 позволяет редактировать свой профиль, просматривать добавленные фотографии и использовать сайт на любом устройстве.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode=development", 
+    "build": "webpack --mode=production", 
     "dev": "webpack serve"
   },
   "repository": {

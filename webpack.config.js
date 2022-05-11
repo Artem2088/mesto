@@ -7,12 +7,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // module.exports — это синтаксис экспорта в Node.js
 module.exports = {
-  entry: { main: 'src/index.js' }, // указали первое место, куда заглянет webpack, — файл index.js в папке src
+  entry: { main: './src/index.js' }, // указали первое место, куда заглянет webpack, — файл index.js в папке src
   output: {
     path: path.resolve(__dirname, 'dist'), // переписали точку выхода, используя утилиту path
     filename: 'main.js',
     publicPath: '',
   },
+  mode: 'development', // добавили режим разработчика
   devServer: {
     static: path.resolve(__dirname, './dist'), // путь, куда "смотрит" режим разработчика
     compress: true, // это ускорит загрузку в режиме разработки
@@ -59,7 +60,7 @@ module.exports = {
   // добавьте массив
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.html', // путь к файлу index.html
+      template: './src/index.html', // путь к файлу index.html
     }),
     new CleanWebpackPlugin(), // использовали плагин
     new MiniCssExtractPlugin(), // подключение плагина для объединения файлов
