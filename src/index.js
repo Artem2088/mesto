@@ -4,7 +4,45 @@ import FormValidator from './scripts/FormValidator.js';
 import PopupWithImage from './scripts/PopupWithImage.js';
 import PopupWithForm from './scripts/PopupWithForm.js';
 import UserInfo from './scripts/UserInfo.js';
+import {
+  validationConfigPopup,
+  popupProfileContainer,
+  popupAddCardContainer,
+  popupImageContainer,
+  popupFormAddContainer,
+  popupFormEditContainer,
+  popupNameField,
+  popupStatusField,
+  profileTitleContainer,
+  profileSubtitleContainer,
+  profileEditButton,
+  profileAddButton,
+  placesListContainer,
+} from '../src/scripts/utils/Constants.js';
 import '../src/pages/index.css'; // добавьте импорт главного файла стилей
+
+//Import картинок для Webpack
+const Arhiz = new URL('../../images/arkhyz.jpg', import.meta.url);
+const Chelybinsk = new URL(
+  '../../images/chelyabinsk-oblast.jpg',
+  import.meta.url
+);
+const Ivanovo = new URL('../../images/ivanovo.jpg', import.meta.url);
+const Kamchatka = new URL('../../images/Kamchatka.jpg', import.meta.url);
+const Holmogorskiy = new URL(
+  '../../images/kholmogorsky-rayon.jpg',
+  import.meta.url
+);
+const Baykal = new URL('../../images/baikal.jpg', import.meta.url);
+//массив 6 стандартных карточек для Webpack
+export const initialCards = [
+  { name: 'Архыз', link: Arhiz },
+  { name: 'Челябинская область', link: Chelybinsk },
+  { name: 'Иваново', link: Ivanovo },
+  { name: 'Камчатка', link: Kamchatka },
+  { name: 'Холмогорский район', link: Holmogorskiy },
+  { name: 'Байкал', link: Baykal },
+];
 
 // Константа содержащая в себе все карточки
 const cardsList = new Section(
