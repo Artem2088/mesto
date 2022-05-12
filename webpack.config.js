@@ -10,7 +10,7 @@ module.exports = {
   entry: { main: './src/index.js' }, // указали первое место, куда заглянет webpack, — файл index.js в папке src
   output: {
     path: path.resolve(__dirname, 'dist'), // переписали точку выхода, используя утилиту path
-    filename: 'main.js',
+    filename: 'index.js',
     publicPath: '',
   },
   mode: 'development', // добавили режим разработчика
