@@ -4,15 +4,17 @@ export default class Popup {
     this._profile_input1 = document.querySelector('#profile-input__error1');
     this._profile_input2 = document.querySelector('#profile-input__error2');
     this._profile_span1 = document.querySelector(
-      '.popup__profile_input-error1'
+      '.popup__profile_input-error_one'
     );
     this._profile_span2 = document.querySelector(
-      '.popup__profile_input-error2'
+      '.popup__profile_input-error_second'
     );
     this._card_input1 = document.querySelector('#card-input__error1');
     this._card_input2 = document.querySelector('#card-input__error2');
-    this._card_span1 = document.querySelector('.popup__card_input-error1');
-    this._card_span2 = document.querySelector('.popup__card_input-error2');
+    this._card_span1 = document.querySelector('.popup__card_input-error_one');
+    this._card_span2 = document.querySelector(
+      '.popup__card_input-error_second'
+    );
   }
 
   // Метод открытия попапа
