@@ -76,4 +76,13 @@ export default class FormValidator {
     error.textContent = input.validationMessage; // Текст ошибки равен дефолтному значению ошибок браузера
     input.classList.add(config.inputInvalidClass); // Добавляем класс невалидного инпута
   };
+
+  // //сброс ошибок и очистка полей инпутов
+  // resetValidationForm = () => {
+  //   this._toggleButtonState();
+  //   this._inputList.forEach((input) => {
+  //     input.value = '';
+  //     this._hideError(form, input, config);
+  //   });
+  // };
 }
