@@ -23,8 +23,8 @@
 @import url('../blocks/footer/__copyright/footer__copyright.css');
 /*---------------------------popup(Profile)-------------------------*/
 @import url('../blocks/popup/__profile/popup__profile.css');
-@import url('../blocks/popup/__profile/_input-error/popup__profile_input-error_one.css');
-@import url('../blocks/popup/__profile/_input-error/popup__profile_input-error_second.css');
+@import url('../blocks/popup/__profile/_input-error-one/popup__profile_input-error-one.css');
+@import url('../blocks/popup/__profile/_input-error-second/popup__profile_input-error-second.css');
 @import url('../blocks/popup/popup.css');
 @import url('../blocks/popup/__label/popup__label.css');
 @import url('../blocks/popup/__input/popup__input.css');
