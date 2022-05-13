@@ -63,7 +63,7 @@ export default class FormValidator {
     }
   };
 
-  // Функция убирающая показал ошибки
+  // Функция убирающая показ ошибки
   _hideError = (form, input, config) => {
     const error = form.querySelector(`#${input.name}-error`); // Ищем в DOM поле ошибки по Name
     error.textContent = ''; // Убираем текст ошибки
