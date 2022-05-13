@@ -1,19 +1,27 @@
 export default class Popup {
   constructor(container) {
     this._container = container;
-    this._input1 = document.querySelector('#input__error1');
-    this._input2 = document.querySelector('#input__error2');
-    this._span1 = document.querySelector('.span__error1');
-    this._span2 = document.querySelector('.span__error2');
+    this._profile_input1 = document.querySelector('#profile-input__error1');
+    this._profile_input2 = document.querySelector('#profile-input__error2');
+    this._profile_span1 = document.querySelector('.profile-span__error1');
+    this._profile_span2 = document.querySelector('.profile-span__error2');
+    this._card_input1 = document.querySelector('#card-input__error1');
+    this._card_input2 = document.querySelector('#card-input__error2');
+    this._card_span1 = document.querySelector('.card-span__error1');
+    this._card_span2 = document.querySelector('.card-span__error2');
   }
 
   // Метод открытия попапа
   open() {
     this._container.classList.add('popup_opened');
-    this._input1.classList.remove('popup__input-error_active');
-    this._input2.classList.remove('popup__input-error_active');
-    this._span1.textContent = '';
-    this._span2.textContent = '';
+    this._profile_input1.classList.remove('popup__input-error_active');
+    this._profile_input2.classList.remove('popup__input-error_active');
+    this._profile_span1.textContent = '';
+    this._profile_span2.textContent = '';
+    this._card_input1.classList.remove('popup__input-error_active');
+    this._card_input2.classList.remove('popup__input-error_active');
+    this._card_span1.textContent = '';
+    this._card_span2.textContent = '';
   }
   // Метод закрытия попапа
   close() {
