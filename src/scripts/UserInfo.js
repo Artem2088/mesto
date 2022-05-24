@@ -1,18 +1,31 @@
 export default class UserInfo {
-  constructor({ titleContainer, subTitleContainer }) {
-    this._titleContainer = titleContainer;
-    this._subTitleContainer = subTitleContainer;
+  constructor({ profileNameSelector, profileAboutSelector, profileAvatarSelector }) {
+    this._profileNameElement = document.querySelector(profileNameSelector);
+    this._profileDescriptionElement = document.querySelector(profileAboutSelector);
+    this._profileAvatarElement = document.querySelector(profileAvatarSelector);
   }
 
   getUserInfo() {
-    this._profileValues = {};
-    this._profileValues.title = this._titleContainer.textContent;
-    this._profileValues.subtitle = this._subTitleContainer.textContent;
-    return this._profileValues;
+    return {
+      userName: this._profileNameElement.textContent,
+      userDescription: this._profileDescriptionElement.textContent
+    }
   }
 
-  setUserInfo(formData) {
-    this._titleContainer.textContent = formData['popup-input-name'];
-    this._subTitleContainer.textContent = formData['popup-input-status'];
+  setUserInfo({ userName, userDescription }) {
+    this._profileNameElement.textContent = userName;
+    this._profileDescriptionElement.textContent = userDescription;
+  }
+
+  setUserAvatar({ userAvatarLink }) {
+    this._profileAvatarElement.src = userAvatarLink;
+  }
+
+  saveUserId(userId) {
+    this._userId = userId;
+  }
+
+  getUserId() {
+    return this._userId;
   }
 }

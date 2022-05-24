@@ -1,23 +1,14 @@
 .footer__copyright {
-  max-width: 318px;
-  min-height: 18px;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  color: #545454;
   margin: 0;
-}
-@media screen and (max-width: 900px) {
-  .footer__copyright {
-    padding: 0 10px 0;
-  }
+  color: #545454;
+  font-size: calc((100vw - 320px) / (1280 - 320) * (18 - 14) + 14px);
+  font-weight: 400;
+  line-height: calc((100vw - 320px) / (1280 - 320) * (22 - 17) + 17px);
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (min-width: 1280px) {
   .footer__copyright {
-    font-size: 14px;
-    line-height: 17px;
-    padding: 0 0 0 19px;
+    font-size: 18px;
+    line-height: 22px;
   }
 }

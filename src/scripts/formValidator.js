@@ -1,88 +1,68 @@
 export default class FormValidator {
-  constructor(config, form) {
-    this._config = config;
-    this._form = form;
+  constructor(classData, formElement) {
+    this._classData = classData;
+    this._formElement = formElement;
+    this._inputList = Array.from(this._formElement.querySelectorAll(`.${this._classData.inputSelector}`));
+    this._buttonElement = this._formElement.querySelector(`.${this._classData.buttonSubmitClass}`);
   }
 
-  // Публичная функция запуска валидации
-  enableValidation = () => {
-    this._inputsList = this._form.querySelectorAll(this._config.inputSelector); // Ищем в DOM все поля ввода
-    this._submitButton = this._form.querySelector(
-      this._config.submitButtonSelector
-    ); // выбираем в DOM кнопку формы
-    this._setEventListeners(this._form, this._config, this._submitButton);
+  enableValidation() {
+    this._setEventListeners();
+  }
 
-    // Вешаем слушатель на сабытие отправки формы
-    this._form.addEventListener('submit', (evt) => {
-      evt.preventDefault(); // убираем дефолтное поведение кнопки отправить форму
-      this._disabledButton(this._submitButton, this._config);
-    });
-
-    this._setButtonState(
-      this._submitButton,
-      this._form.checkValidity(),
-      this._config
-    ); // определяем стартовое состояние кропки
-  };
-
-  // Функция вешает слушатели событий на поля ввода и кнокпи в указаной форме
-  _setEventListeners = (form, config, button) => {
-    // обходим все поля ввода и вешаем на них слушатели
-    this._inputsList.forEach((input) => {
-      input.addEventListener('input', () => {
-        this._checkInputValidity(form, input, config); // проверям валидность формы
-        this._setButtonState(button, form.checkValidity(), config); // проверяем состояние кнопки
+  _setEventListeners() {
+    this.toggleButtonState();
+    this._inputList.forEach((inputElement) => {
+      inputElement.addEventListener("input", () => {
+        this._checkInputValidity(inputElement);
+        this.toggleButtonState();
       });
     });
-  };
+  }
 
-  // Фунция проверки состояния кнопки форм
-  _setButtonState = (button, isActive, config) => {
-    // Если кнопка активна убираем класс и состояние, и наоборот
-    if (isActive) {
-      button.classList.remove(config.buttonInvalidClass);
-      button.disabled = false;
+  _checkInputValidity(inputElement) {
+    if (!inputElement.validity.valid) {
+      this._showInputError(inputElement);
     } else {
-      this._disabledButton(button, config);
+      this._hideInputError(inputElement);
     }
-  };
+  }
 
-  // Функция дизейбла кнопки
-  _disabledButton = (button, config) => {
-    button.classList.add(config.buttonInvalidClass);
-    button.disabled = true;
-  };
+  _showInputError(inputElement) {
+    const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
+    errorElement.textContent = inputElement.validationMessage;
+    errorElement.classList.add(this._classData.activeErrorClass);
+    inputElement.classList.add(this._classData.inputErrorClass);
+  }
 
-  // Функция проверяющая валидность поля ввода
-  _checkInputValidity = (form, input, config) => {
-    // проверяем если не валидно запускаем показ ошибки, если валидно убираем
-    if (!input.validity.valid) {
-      this._showError(form, input, config);
+  _hideInputError(inputElement) {
+    const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
+    errorElement.classList.remove(this._classData.activeErrorClass);
+    errorElement.textContent = '';
+    inputElement.classList.remove(this._classData.inputErrorClass);
+  }
+
+  resetValidation() {
+    this.toggleButtonState();
+
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement)
+    });
+  }
+
+  toggleButtonState() {
+    if (this._hasInvalidInput(this._inputList)) {
+      this._buttonElement.classList.add(this._classData.disableButtonClass);
+      this._buttonElement.disabled = true;
     } else {
-      this._hideError(form, input, config);
+      this._buttonElement.classList.remove(this._classData.disableButtonClass);
+      this._buttonElement.disabled = false;
     }
-  };
+  }
 
-  // Функция убирающая показ ошибки
-  _hideError = (form, input, config) => {
-    const error = form.querySelector(`#${input.name}-error`); // Ищем в DOM поле ошибки по Name
-    error.textContent = ''; // Убираем текст ошибки
-    input.classList.remove(config.inputInvalidClass); // Удаляем класс невалидного инпута
-  };
-
-  // Функция показа ошибки
-  _showError = (form, input, config) => {
-    const error = form.querySelector(`#${input.name}-error`); // Ищем в DOM поле ошибки по Name
-    error.textContent = input.validationMessage; // Текст ошибки равен дефолтному значению ошибок браузера
-    input.classList.add(config.inputInvalidClass); // Добавляем класс невалидного инпута
-  };
-
-  // //сброс ошибок и очистка полей инпутов
-  // resetValidationForm = () => {
-  //   this._toggleButtonState();
-  //   this._inputList.forEach((input) => {
-  //     input.value = '';
-  //     this._hideError(form, input, config);
-  //   });
-  // };
+  _hasInvalidInput() {
+    return this._inputList.some(function (inputElement) {
+      return !inputElement.validity.valid;
+    });
+  }
 }
