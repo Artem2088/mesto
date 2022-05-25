@@ -39,4 +39,4 @@ https://www.figma.com/file/kRVLKwYG3d1HGLvh7JFWRT/JavaScript.-Sprint-6?node-id=0
 
 Открыть проект в браузере:
 
-https://Artem2088.github.io/mesto/
+[**_Проект MESTO_**](https://Artem2088.github.io/mesto/)
